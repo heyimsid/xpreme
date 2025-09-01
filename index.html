@@ -1,68 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Xpreme Store</title>
-  
-  <!-- Google Fonts: Poppins for clean modern luxury vibe -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
-  
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPREME | Futuristic Apparel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <h1>X<span>preme</span></h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li class="cart">
-          🛒 <span id="cart-count">0</span>
-        </li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav class="container">
+            <h1 class="logo">XPREME</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="cart-icon"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.896l2.948 14h12.871l2.42-8h-1.631z"/></svg></a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <section class="hero">
-      <h2>Experience Premium Tech Gear</h2>
-      <p>Shop the latest &amp; greatest with Xpreme</p>
-      <button class="btn-primary">Shop Now</button>
-    </section>
+    <main>
+        <section id="hero">
+            <div class="hero-content container">
+                <h2>Welcome to a New Era of Style</h2>
+                <p>Discover the future of fashion. Cutting-edge designs, superior quality.</p>
+                <a href="#products" class="cta-button">Shop Now</a>
+            </div>
+        </section>
 
-    <section class="products">
-      <article class="product" data-id="1" data-name="Smart Watch" data-price="149">
-        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Smart Watch" />
-        <h3>Smart Watch</h3>
-        <p>$149</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </article>
+        <section id="products" class="container">
+            <h3 class="section-title">Latest Drops</h3>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300" alt="Product Name 1">
+                    <div class="product-info">
+                        <h4>Cyber Jacket</h4>
+                        <p>$199.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300" alt="Product Name 2">
+                    <div class="product-info">
+                        <h4>Neon Sneakers</h4>
+                        <p>$129.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300" alt="Product Name 3">
+                    <div class="product-info">
+                        <h4>Matrix Hoodie</h4>
+                        <p>$89.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                </div>
+        </section>
 
-      <article class="product" data-id="2" data-name="Wireless Earbuds" data-price="89">
-        <img src="https://images.unsplash.com/photo-1580894894514-9d1c51d4a8d9?auto=format&fit=crop&w=400&q=80" alt="Wireless Earbuds" />
-        <h3>Wireless Earbuds</h3>
-        <p>$89</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </article>
+        <section id="about" class="container">
+            <h3 class="section-title">Our Vision</h3>
+            <p>At Xpreme, we fuse technology with textile to create a new paradigm in fashion. Our designs are inspired by cyberpunk aesthetics and a future where style is a statement of defiance.</p>
+        </section>
+    </main>
 
-      <article class="product" data-id="3" data-name="VR Headset" data-price="299">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="VR Headset" />
-        <h3>VR Headset</h3>
-        <p>$299</p>
-        <button class="add-to-cart">Add to Cart</button>
-      </article>
-    </section>
-  </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 XPREME. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-  <footer>
-    <p>&copy; 2025 Xpreme. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
