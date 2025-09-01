@@ -1,13 +1,19 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const cartCountEl = document.getElementById('cart-count');
   let cartCount = 0;
 
-  document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
+  document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
       cartCount++;
       cartCountEl.textContent = cartCount;
-      alert('Added to cart!');
+      
+      // Animate the button for feedback
+      btn.textContent = 'Added!';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Add to Cart';
+        btn.disabled = false;
+      }, 1200);
     });
   });
 });
