@@ -1,39 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Xpreme Store</title>
+  
+  <!-- Google Fonts: Poppins for clean modern luxury vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>Xpreme Store</h1>
-    <div class="cart">
-      🛒 Cart (<span id="cart-count">0</span>)
+    <div class="logo">
+      <h1>X<span>preme</span></h1>
     </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li class="cart">
+          🛒 <span id="cart-count">0</span>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <main>
+    <section class="hero">
+      <h2>Experience Premium Tech Gear</h2>
+      <p>Shop the latest &amp; greatest with Xpreme</p>
+      <button class="btn-primary">Shop Now</button>
+    </section>
+
     <section class="products">
       <article class="product" data-id="1" data-name="Smart Watch" data-price="149">
-        <h2>Smart Watch</h2>
-        <p>Price: $149</p>
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Smart Watch" />
+        <h3>Smart Watch</h3>
+        <p>$149</p>
         <button class="add-to-cart">Add to Cart</button>
       </article>
+
       <article class="product" data-id="2" data-name="Wireless Earbuds" data-price="89">
-        <h2>Wireless Earbuds</h2>
-        <p>Price: $89</p>
+        <img src="https://images.unsplash.com/photo-1580894894514-9d1c51d4a8d9?auto=format&fit=crop&w=400&q=80" alt="Wireless Earbuds" />
+        <h3>Wireless Earbuds</h3>
+        <p>$89</p>
         <button class="add-to-cart">Add to Cart</button>
       </article>
+
       <article class="product" data-id="3" data-name="VR Headset" data-price="299">
-        <h2>VR Headset</h2>
-        <p>Price: $299</p>
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="VR Headset" />
+        <h3>VR Headset</h3>
+        <p>$299</p>
         <button class="add-to-cart">Add to Cart</button>
       </article>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Xpreme. All rights reserved.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
