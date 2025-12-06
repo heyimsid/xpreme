@@ -16,13 +16,28 @@
                 <li><a href="#products">Products</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="cart-icon"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.896l2.948 14h12.871l2.42-8h-1.631z"/></svg></a></li>
+                <li class="cart-icon">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.896l2.948 14h12.871l2.42-8h-1.631z"/>
+                        </svg>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="hero">
+            <!-- Background video -->
+            <video autoplay muted loop class="hero-video">
+                <source src="vdo.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+
+            <!-- Overlay -->
+            <div class="hero-overlay"></div>
+
             <div class="hero-content container">
                 <h2>Welcome to a New Era of Style</h2>
                 <p>Discover the future of fashion. Cutting-edge designs, superior quality.</p>
@@ -57,7 +72,7 @@
                         <button class="add-to-cart">Add to Cart</button>
                     </div>
                 </div>
-                </div>
+            </div>
         </section>
 
         <section id="about" class="container">
@@ -72,6 +87,5 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
