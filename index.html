@@ -4,74 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XPREME | Futuristic Apparel</title>
+
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <nav class="container">
-            <h1 class="logo">XPREME</h1>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="cart-icon"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.896l2.948 14h12.871l2.42-8h-1.631z"/></svg></a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section id="hero">
-            <div class="hero-content container">
-                <h2>Welcome to a New Era of Style</h2>
-                <p>Discover the future of fashion. Cutting-edge designs, superior quality.</p>
-                <a href="#products" class="cta-button">Shop Now</a>
-            </div>
-        </section>
+<header>
+    <nav class="container">
+        <h1 class="logo">XPREME</h1>
 
-        <section id="products" class="container">
-            <h3 class="section-title">Latest Drops</h3>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="jckt.jpg" alt="Product Name 1">
-                    <div class="product-info">
-                        <h4>Leather Jacket</h4>
-                        <p>₹5999.99</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="nike.avif" alt="Product Name 2">
-                    <div class="product-info">
-                        <h4>Nike Air Jordan 1</h4>
-                        <p>₹7999.99</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="pant.avif" alt="Product Name 3">
-                    <div class="product-info">
-                        <h4>Baggy Jeans</h4>
-                        <p>₹3999.99</p>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                </div>
-        </section>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#" id="loginBtn">Login</a></li>
+            <li class="cart-icon">
+                <span id="cartCount">0</span>
+                🛒
+            </li>
+        </ul>
+    </nav>
+</header>
 
-        <section id="about" class="container">
-            <h3 class="section-title">Our Vision</h3>
-            <p>At Xpreme, we fuse technology with textile to create a new paradigm in fashion. Our designs are inspired by cyberpunk aesthetics and a future where style is a statement of defiance.</p>
-        </section>
-    </main>
+<!-- HERO WITH VIDEO -->
+<section id="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 XPREME. All Rights Reserved.</p>
+    <div class="hero-content container">
+        <h2>Welcome to a New Era of Style</h2>
+        <p>Discover the future of fashion. Cutting-edge designs.</p>
+        <a href="#products" class="cta-button">Shop Now</a>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="container">
+    <h3 class="section-title">Latest Drops</h3>
+
+    <div class="product-grid">
+        <div class="product-card" data-name="Leather Jacket" data-price="5999">
+            <img src="jckt.jpg">
+            <h4>Leather Jacket</h4>
+            <p>₹5999</p>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="product-card" data-name="Air Jordan 1" data-price="7999">
+            <img src="nike.avif">
+            <h4>Nike Air Jordan 1</h4>
+            <p>₹7999</p>
+        </div>
+
+        <div class="product-card" data-name="Baggy Jeans" data-price="3999">
+            <img src="pant.avif">
+            <h4>Baggy Jeans</h4>
+            <p>₹3999</p>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="container">
+    <h3 class="section-title">Our Vision</h3>
+    <p>
+        XPREME blends cyberpunk energy with premium craftsmanship.
+        Designed for the future.
+    </p>
+</section>
+
+<footer>
+    <p>© 2025 XPREME. All Rights Reserved.</p>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal" id="productModal">
+    <div class="modal-box">
+        <span class="close">&times;</span>
+        <img id="modalImg">
+        <h3 id="modalTitle"></h3>
+        <p id="modalPrice"></p>
+        <button class="cta-button" id="addCartModal">Add to Cart</button>
+    </div>
+</div>
+
+<!-- LOGIN PANEL -->
+<div class="auth-panel" id="authPanel">
+    <div class="auth-box">
+        <h3>Login / Signup</h3>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="cta-button">Continue</button>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Added to cart ✅</div>
+
+<script src="script.js"></script>
 </body>
 </html>
