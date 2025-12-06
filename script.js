@@ -1,41 +1,40 @@
-document.addEventListener('DOMContentLoaded', () => {
+const modal = document.getElementById("productModal");
+const modalImg = document.getElementById("modalImg");
+const modalTitle = document.getElementById("modalTitle");
+const modalPrice = document.getElementById("modalPrice");
+const toast = document.getElementById("toast");
+const cartCount = document.getElementById("cartCount");
+const authPanel = document.getElementById("authPanel");
 
-    const cartIcon = document.querySelector('.cart-icon a');
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    let cartCount = 0;
+let cart = 0;
+let currentProduct = null;
 
-    // Simple add to cart functionality
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            cartCount++;
-            alert(`Item added to cart! Your cart now has ${cartCount} item(s).`);
-        });
+/* PRODUCT CLICK */
+document.querySelectorAll(".product-card").forEach(card => {
+    card.addEventListener("click", () => {
+        currentProduct = card;
+        modal.style.display = "flex";
+        modalImg.src = card.querySelector("img").src;
+        modalTitle.innerText = card.dataset.name;
+        modalPrice.innerText = "₹" + card.dataset.price;
     });
-
-    // Animate sections on scroll
-    const sections = document.querySelectorAll('section');
-    const options = {
-        root: null,
-        threshold: 0.1,
-        rootMargin: "0px"
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, options);
-
-    sections.forEach(section => {
-        // Apply initial hidden styles
-        section.style.opacity = 0;
-        section.style.transform = 'translateY(50px)';
-        section.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
-        observer.observe(section);
-    });
-
 });
+
+document.querySelector(".close").onclick = () => modal.style.display = "none";
+
+/* ADD TO CART */
+document.getElementById("addCartModal").onclick = () => {
+    cart++;
+    cartCount.innerText = cart;
+    modal.style.display = "none";
+    showToast();
+};
+
+function showToast() {
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 2000);
+}
+
+/* LOGIN */
+document.getElementById("loginBtn").onclick = () => authPanel.style.display = "flex";
+authPanel.onclick = e => { if (e.target === authPanel) authPanel.style.display = "none"; };
