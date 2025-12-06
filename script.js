@@ -1,40 +1,27 @@
-const modal = document.getElementById("productModal");
-const modalImg = document.getElementById("modalImg");
-const modalTitle = document.getElementById("modalTitle");
-const modalPrice = document.getElementById("modalPrice");
-const toast = document.getElementById("toast");
-const cartCount = document.getElementById("cartCount");
-const authPanel = document.getElementById("authPanel");
+const modal = document.getElementById('productModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalPrice = document.getElementById('modalPrice');
+const toast = document.getElementById('cartToast');
+const authPanel = document.getElementById('authPanel');
 
-let cart = 0;
-let currentProduct = null;
-
-/* PRODUCT CLICK */
-document.querySelectorAll(".product-card").forEach(card => {
-    card.addEventListener("click", () => {
-        currentProduct = card;
-        modal.style.display = "flex";
-        modalImg.src = card.querySelector("img").src;
-        modalTitle.innerText = card.dataset.name;
-        modalPrice.innerText = "₹" + card.dataset.price;
-    });
+document.querySelectorAll('.view-product').forEach(btn => {
+    btn.onclick = e => {
+        const card = e.target.closest('.product-card');
+        modalTitle.textContent = card.dataset.name;
+        modalPrice.textContent = "₹" + card.dataset.price;
+        modal.style.display = 'flex';
+    };
 });
 
-document.querySelector(".close").onclick = () => modal.style.display = "none";
+document.querySelectorAll('.close').forEach(b => b.onclick = () => modal.style.display='none');
 
-/* ADD TO CART */
-document.getElementById("addCartModal").onclick = () => {
-    cart++;
-    cartCount.innerText = cart;
-    modal.style.display = "none";
-    showToast();
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.onclick = () => {
+        toast.style.display = 'block';
+        setTimeout(()=>toast.style.display='none',1500);
+    }
+});
+
+document.getElementById('loginBtn').onclick = () => {
+    authPanel.classList.toggle('active');
 };
-
-function showToast() {
-    toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 2000);
-}
-
-/* LOGIN */
-document.getElementById("loginBtn").onclick = () => authPanel.style.display = "flex";
-authPanel.onclick = e => { if (e.target === authPanel) authPanel.style.display = "none"; };
