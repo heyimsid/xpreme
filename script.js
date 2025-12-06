@@ -1,27 +1,40 @@
-const modal = document.getElementById('productModal');
-const modalTitle = document.getElementById('modalTitle');
-const modalPrice = document.getElementById('modalPrice');
-const toast = document.getElementById('cartToast');
-const authPanel = document.getElementById('authPanel');
+document.addEventListener('DOMContentLoaded', () => {
 
-document.querySelectorAll('.view-product').forEach(btn => {
-    btn.onclick = e => {
-        const card = e.target.closest('.product-card');
-        modalTitle.textContent = card.dataset.name;
-        modalPrice.textContent = "₹" + card.dataset.price;
-        modal.style.display = 'flex';
+    const cartIcon = document.querySelector('.cart-icon a');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    let cartCount = 0;
+
+    // Simple add to cart functionality
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            cartCount++;
+            alert(`Item added to cart! Your cart now has ${cartCount} item(s).`);
+        });
+    });
+
+    // Animate sections on scroll
+    const sections = document.querySelectorAll('section');
+    const options = {
+        root: null,
+        threshold: 0.1,
+        rootMargin: "0px"
     };
-});
 
-document.querySelectorAll('.close').forEach(b => b.onclick = () => modal.style.display='none');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
 
-document.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.onclick = () => {
-        toast.style.display = 'block';
-        setTimeout(()=>toast.style.display='none',1500);
-    }
-});
-
-document.getElementById('loginBtn').onclick = () => {
-    authPanel.classList.toggle('active');
-};
+    sections.forEach(section => {
+        // Apply initial hidden styles
+        section.style.opacity = 0;
+        section.style.transform = 'translateY(50px)';
+        section.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+        observer.observe(section);
+    });
+));
